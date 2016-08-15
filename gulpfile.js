@@ -19,7 +19,7 @@ gulp.task('copy:images', function (done) {
 
 
 //sass
-gulp.task('sass', function () {
+gulp.task('sass',['cleancss'], function () {
     return gulp.src('src/sass/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -39,7 +39,7 @@ gulp.task('md5:css',['sass'], function (done) {
 
 //将js加上10位md5,并修改html中的引用路径，该动作依赖build-js
 gulp.task('md5:js', ['rjs'], function (done) {
-    gulp.src('dist/js/*.js')
+    gulp.src('dist/js/**/*')
         .pipe(md5(10, 'dist/*.html'))
         .pipe(gulp.dest('dist/js'))
         .on('end', done);
@@ -55,14 +55,14 @@ gulp.task('sprite', function () {
 
 
 
-gulp.task('js',function(){
+gulp.task('js',['cleanjs'],function(){
     return gulp.src('src/js/**/*.js')
         .pipe(gulp.dest('dist/js'))
 });
 
 
 //打包requirejs
-gulp.task('rjs',function(){
+gulp.task('rjs',['js'],function(){
     return gulp.src('src/js/app/*.js')
         .pipe(sourcemaps.init())
         .pipe(requirejsOptimize({
@@ -103,9 +103,28 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch("dist/*.html").on('change', browserSync.reload);
 });
 
+//打包前清除JS
+gulp.task('cleanjs',function () {
+    return gulp.src('dist/js/**/*.js',{read: false})
+            .pipe(clean());
+});
+
+//清除css
+gulp.task('cleancss',function () {
+    return gulp.src('dist/css/',{read: false})
+        .pipe(clean());
+});
+
+
+//全部清空
+gulp.task('clean',function () {
+    return gulp.src('dist/',{read: false})
+        .pipe(clean());
+});
+
 
 //开发任务
-gulp.task('dev', ['serve','watch']);
+gulp.task('dev', ['serve','watch','copy:images','sass','js','fileinclude','sprite']);
 
-//打包发布
-gulp.task('ann', ['serve','watch','md5:css','md5:js']);
+//打包发布()
+gulp.task('ann', ['serve','rjs','md5:css','md5:js']);
