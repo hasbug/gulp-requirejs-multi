@@ -20,7 +20,7 @@ gulp.task('copy:images', function (done) {
 
 //sass
 gulp.task('sass',['cleancss'], function () {
-    return gulp.src('src/sass/**/*.scss')
+    return gulp.src('src/sass/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
@@ -77,14 +77,13 @@ gulp.task('rjs',['js'],function(){
 
 
 //用于在html文件中直接include文件(例如：插入共用头部底部)
-gulp.task('fileinclude', function (done) {
-    gulp.src(['src/*.html'])
+gulp.task('fileinclude', function () {
+    gulp.src(['src/view/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('dist/'))
-        .on('end', done);
+        .pipe(gulp.dest('dist/'));
 });
 
 
