@@ -1,0 +1,67 @@
+@import url(../fonts/iconfont/iconfont.css);
+@import "reset";
+@import "var";
+@import "mixin";
+.clearfix{
+  zoom:1;
+  &:before,
+  &:after{
+    content:"";
+    display: table;
+  }
+  &:after{
+    clear:both;
+  }
+}
+
+.btn{
+  height:44px;
+  height:4.4rem;
+  color:#fff;
+  background:$base-blue;
+  border:none;
+}
+
+.blue-gradient-btn{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1380fa+0,006ee2+70,0469da+100 */
+  background: #1380fa; /* Old browsers */
+  background: -moz-linear-gradient(top,  #1380fa 0%, #006ee2 70%, #0469da 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #1380fa 0%,#006ee2 70%,#0469da 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #1380fa 0%,#006ee2 70%,#0469da 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1380fa', endColorstr='#0469da',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+.app-wrap{
+  max-width:750px;
+  max-width:75rem;
+  margin:0 auto;
+  -webkit-overflow-scrolling : touch;
+}
+
+.white-bg{
+  background:#fff;
+}
+
+.full-control{
+  display: block;
+  width:100%;
+}
+
+
+/* 字体 */
+.fz12{
+  @include font-size(12px);
+}
+
+
+.fl{
+  float: left;
+  _display: inline;
+}
+
+.fr{
+  float: right;
+  _display: inline;
+}

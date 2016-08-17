@@ -1,7 +1,12 @@
-//因为打包的原因，这时候已经不能使用上面的config，只能在下方相对地址引入
-
-require(['jquery'],function($){
-    //test jquery
-    $('body').css('background','#999');
-    console.log('doubi');
+require(['jquery','swiper'],function($,swiper){
+    var mySwiper = new Swiper('.msg-swiper-wrap', {
+        autoplay: 0,
+        direction : 'vertical',
+        wrapperClass : 'msg-swiper-list',
+        slideClass : 'msg-swiper-item',
+        slidesPerView :1,
+        grabCursor : true,
+        autoHeight: true,
+        lazyLoading : true
+    })
 });

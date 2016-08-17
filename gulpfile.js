@@ -18,14 +18,21 @@ gulp.task('copy:images', function (done) {
 });
 
 
+//拷贝fonts目录到dist
+gulp.task('copy:fonts', function (done) {
+    gulp.src(['src/fonts/**/*']).pipe(gulp.dest('dist/fonts')).on('end', done);
+});
+
+
 //sass
-gulp.task('sass',['cleancss'], function () {
+gulp.task('sass', function () {
     return gulp.src('src/sass/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream());
+   // cb(err);
 });
 
 
@@ -57,7 +64,8 @@ gulp.task('sprite', function () {
 
 gulp.task('js',['cleanjs'],function(){
     return gulp.src('src/js/**/*.js')
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('dist/js'));
+    //cb(err);
 });
 
 
@@ -89,23 +97,25 @@ gulp.task('fileinclude', function () {
 
 //监听src文件变动
 gulp.task('watch',function(){
-    gulp.watch('src/**/*',['sass','js','copy:images','sprite','fileinclude']);
+    gulp.watch('src/**/*',['sass','js','copy:images','copy:fonts','sprite','fileinclude']);
 });
 
 //本地服务
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve',function() {
     browserSync.init({
         server: "./"
     });
 
-    gulp.watch("src/sass/*.scss", ['sass']);
-    gulp.watch("dist/*.html").on('change', browserSync.reload);
+   // gulp.watch("src/sass/*.scss", ['sass']);
+   // gulp.watch("dist/*.html").on('change', browserSync.reload);
 });
 
 //打包前清除JS
-gulp.task('cleanjs',function () {
+gulp.task('cleanjs',function (cb) {
     return gulp.src('dist/js/**/*.js',{read: false})
             .pipe(clean());
+            cb(err);
+
 });
 
 //清除css
@@ -121,9 +131,12 @@ gulp.task('clean',function () {
         .pipe(clean());
 });
 
+//初步任务
+gulp.task('set',['copy:images','copy:fonts','sass','js','fileinclude','sprite']);
+
 
 //开发任务
-gulp.task('dev', ['serve','watch','copy:images','sass','js','fileinclude','sprite']);
+gulp.task('dev', ['serve','watch','set']);
 
 //打包发布()
 gulp.task('ann', ['serve','rjs','md5:css','md5:js']);

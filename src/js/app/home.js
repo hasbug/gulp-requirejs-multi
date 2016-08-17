@@ -1,7 +1,16 @@
-require(['jquery','../lib/jquery.fullPage'],function ($,fullpage) {
-    $(document).ready(function() {
-        $('#fullpage').fullpage({
-            sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000']
-        });
+
+
+require(['jquery','../lib/jquery.fullPage'],function($,fullpage){
+    $('#welcome-fullpage').fullpage({
+        anchors: ['page1', 'page2', 'page3', 'page4','page5','page6'],
+        sectionsColor: ['#f6ce88', '#fef6e9', '#fdf5c6', '#fae3bb'],
+        'navigation': true,
+        afterLoad: function(anchorLink, index){
+            var loadedSection = $(this);
+            //using index
+            if(index == 3){
+                //loadedSection.addClass('active')
+            }
+        }
     });
 });

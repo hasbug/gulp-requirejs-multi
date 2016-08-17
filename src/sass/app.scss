@@ -1,0 +1,548 @@
+@import "common";
+
+
+
+
+
+/* 底部菜单-begin */
+.footer{
+  height: $footer-bar-height;
+}
+
+.footer-menu{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  width:100%;
+  background: #fff;
+  height: $footer-bar-height;
+  line-height:$footer-bar-height;
+  -webkit-box-shadow:  1px 0 3px rgba(0,0,0,0.44);
+  -moz-box-shadow:  1px 0 3px rgba(0,0,0,0.44);
+  box-shadow:  1px 0 3px rgba(0,0,0,0.44);
+  @extend .clearfix;
+  li{
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+  a{
+    display: block;
+    width:100%;
+    height:100%;
+    color: $base-gray;
+    text-decoration:none;
+    &.cur{
+      color:#fff;
+      background:$base-blue;
+    }
+  }
+}
+
+/* 底部菜单-end */
+
+
+
+/* 欢迎页面-begin */
+#welcome-fullpage{
+  .section{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    &:nth-child(1){
+      background-image: url(../images/welcome-bg1.jpg);
+    }
+    &:nth-child(2){
+      background-image: url(../images/welcome-bg2.jpg);
+    }
+    &:nth-child(3){
+      background-image: url(../images/welcome-bg3.jpg);
+    }
+    &:nth-child(4){
+      background-image: url(../images/welcome-bg4.jpg);
+    }
+  }
+}
+
+.ask-item{
+  position: absolute;
+  left:-30%;
+  top:40px;
+  padding-left:20px;
+  color:#fff;
+  background:#f6b94a;
+  @include radius(10px);
+  opacity: 0;
+  white-space: nowrap;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  @include fater-inside('.active'){
+    opacity:1;
+    &:nth-child(1){
+      left:5%;
+      transition-delay: 0.2s;
+    }
+    &:nth-child(2){
+      left:35%;
+      transition-delay: 0.4s;
+    }
+    &:nth-child(3){
+      left:55%;
+      transition-delay: 0.5s;
+
+    }
+    &:nth-child(4){
+      left:15%;
+      transition-delay: 0.6s;
+
+    }
+    &:nth-child(5){
+      left:45%;
+      transition-delay: 1s;
+
+    }
+    &:nth-child(6){
+      left:10%;
+      transition-delay: 1.2s;
+
+    }
+  }
+  span{
+    position: absolute;
+    left: -10px;
+    top:-3px;
+    width: 26px;
+    height: 26px;
+    line-height:26px;
+    text-align:center;
+    background:#f6b94a;
+    @include radius(50%);
+  }
+  &:nth-child(2){
+    top:80px;
+    left:15%;
+  }
+  &:nth-child(3){
+    top:120px;
+    left:75%;
+
+  }
+  &:nth-child(4){
+    top:160px;
+    left:5%;
+
+  }
+  &:nth-child(5){
+    top:200px;
+    left:80%;
+
+  }
+  &:nth-child(6){
+    top:240px;
+    left:0%;
+
+  }
+}
+
+/* 欢迎页面-end */
+
+
+
+
+/* 代言列表页-begin */
+.list-select{
+  position: relative;
+  color:#fff;
+  background:$base-blue;
+}
+
+
+
+
+
+.grid-msg-item{
+  width:33.3%;
+  margin-bottom:4px;
+}
+
+.grid-inner{
+  padding:2px;
+  a{
+    display: block;
+    padding:3px;
+    text-decoration: none;
+    color:#333;
+    background:#fff;
+  }
+  .address{
+    @include font-size(14px);
+  }
+  .author{
+    @include font-size(12px);
+    color:$base-gray;
+  }
+}
+
+
+/* 代言列表页-end */
+
+
+/* 首页-begin */
+.msg-tab{
+  position: relative;
+  padding-left:55px;
+  margin:10px;
+  -webkit-box-shadow:  0 0 21px rgba(0,0,0,0.45);
+  -moz-box-shadow:  0 0 21px rgba(0,0,0,0.45);
+  box-shadow:  0 0 21px rgba(0,0,0,0.45);
+  @include radius(10px);
+}
+
+.msg-tab-tit{
+  position: absolute;
+  left:0;
+  top:0;
+  width:55px;
+  color:#fff;
+  a{
+    display: block;
+    width:35px;
+    padding:10px 10px;
+    color: #fff;
+    background: #404a58;
+    text-decoration: none;
+    &.cur{
+      background:#0368da;
+    }
+    &:first-child{
+      @include radius(10px 0 0 0);
+    }
+    &:last-child{
+      @include radius(0 0 0 10px);
+    }
+  }
+}
+
+.msg-swiper-item{
+  @extend .clearfix;
+  .msg-image,
+  .info{
+    float: left;
+    width:50%;
+  }
+  .info{
+    padding:10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    a{
+      display: inline-block;
+      margin-top:10px;
+      color:$base-blue;
+      text-decoration: none;
+    }
+  }
+  .info-abstract{
+    line-height:18px;
+    line-height:1.8rem;
+    height:90px;
+    height:9rem;
+    overflow: hidden;
+  }
+}
+
+.info-header{
+  position: relative;
+  padding-left:50px;
+  @include min-height(45px);
+  h4{
+    @include font-size(14px);
+  }
+  p{
+    @include font-size(12px);
+  }
+  .avatar{
+    position: absolute;
+    left:0;
+    top:0;
+    width:40px;
+    height:40px;
+    @include radius(50%);
+
+  }
+}
+
+.msg-swiper-wrap{
+  height:186px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.msg-swiper-list{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.msg-swiper-item{
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.msg-image{
+  position: relative;
+  height:100%;
+  background:$base-gray;
+  @include radius(0 10px 10px 0);
+  img{
+    width:100%;
+    height:100%;
+    @include radius(0 10px 10px 0);
+  }
+}
+
+.msg-icon-bar{
+  position: absolute;
+  right:0;
+  bottom:10px;
+  i{
+    color:#fff;
+    font-style: normal;
+    margin-right:10px;
+  }
+}
+
+.hot-map{
+  padding:15px 0;
+}
+
+.hn-map{
+  width:350px;
+  height:0;
+  padding-top:64.5%;
+  margin:0 auto;
+  background:url(../images/map.png) no-repeat;
+  -webkit-background-size:100% auto;
+  background-size:100% auto;
+}
+
+.join-btn{
+  display: block;
+  margin:0 auto;
+  width:240px;
+  height:44px;
+  line-height:44px;
+  text-align: center;
+  text-decoration: none;
+  @include font-size(20px);
+  color:#fff;
+  background:$base-blue;
+  @include radius(6px);
+  i{
+    margin-left:10px;
+    @include font-size(22px);
+  }
+}
+
+.notice-bar{
+  position: relative;
+  padding:0 10px 0 34px;
+  color:$base-gray;
+  .icon-notice{
+    position: absolute;
+    left:10px;
+    top:0;
+  }
+}
+
+.notice-list{
+  line-height:24px;
+  height:24px;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/* 首页-end */
+
+
+/* 发表代言页面-begin */
+
+
+.diy-select{
+  width:100%;
+  height:40px;
+  margin-bottom:10px;
+  border-color:$base-border-color;
+}
+
+.post-msg{
+  padding:10px;
+  label{
+    color:#999;
+  }
+  textarea{
+    width:100%;
+    padding:5px;
+    height:120px;
+    margin-bottom:10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-color:$base-border-color;
+  }
+}
+
+.upload-pic{
+  position: relative;
+  padding:10px;
+  margin-bottom:10px;
+  overflow: auto;
+  background:#dadada;
+  @extend .clearfix;
+}
+
+#upload-container{
+  position: relative;
+}
+
+.upload-pic-item{
+  position: relative;
+  float: left;
+  width:80px;
+  height:80px;
+  margin-right:10px;
+  img{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .progress{
+    position: absolute;
+    left:3%;
+    top:60px;
+    width:94%;
+    height:5px;
+    background:$base-gray;
+    @include radius(5px);
+    .progress-bar{
+      height:100%;
+      background:$base-success;
+      @include radius(5px);
+    }
+  }
+}
+
+.upload-delete{
+  position: absolute;
+  right:0;
+  top:0;
+  padding:5px;
+  i{
+    color:#fff;
+  }
+}
+
+.upload-icon{
+  width:80px;
+  height:80px;
+  text-align: center;
+  background:$base-gray;  
+  i{
+    display: block;
+    margin:0 auto;
+  }
+}
+
+
+/* 发表代言页面-end */
+
+
+
+/* 个人中心-begin */
+.member-info{
+  background: #fff;
+}
+
+.login-bind{
+  margin:20px 50px;
+  @extend .clearfix;
+  a {
+    float: left;
+    display: block;
+    width: 100px;
+    height: 44px;
+    margin:0 10px;
+    line-height:44px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    &:nth-child(1) {
+      background: #f26b48;
+    }
+    &:nth-child(2) {
+      background: #21a900;
+
+    }
+    i{
+      color:#fff;
+    }
+  }
+}
+
+.rugby-item{
+  .media-box{
+    position: relative;
+    display: block;
+    padding:10px 20px 10px 100px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color:#333;
+    background:#fff;
+    border:1px solid #d6d6d6;
+    .icon-arrow-right{
+      position: absolute;
+      right:10px;
+      top:50%;
+      margin-top:-8px;
+      color:$base-gray;
+    }
+  }
+  .msg-icon-bar{
+    position: static;
+    i{
+      color:$base-gray;
+    }
+  }
+}
+
+.mod-box{
+  padding:10px;
+}
+
+
+
+/* 个人中心-end */
