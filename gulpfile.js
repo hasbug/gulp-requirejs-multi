@@ -10,17 +10,17 @@ var gulp=require('gulp'),
 
 
 
-
+var path='dist'
 
 //拷贝images目录到dist
 gulp.task('copy:images', function (done) {
-    gulp.src(['src/images/**/*']).pipe(gulp.dest('dist/images')).on('end', done);
+    gulp.src(['src/images/**/*']).pipe(gulp.dest(path+'/images')).on('end', done);
 });
 
 
 //拷贝fonts目录到dist
 gulp.task('copy:fonts', function (done) {
-    gulp.src(['src/fonts/**/*']).pipe(gulp.dest('dist/fonts')).on('end', done);
+    gulp.src(['src/fonts/**/*']).pipe(gulp.dest(path+'/fonts')).on('end', done);
 });
 
 
@@ -30,7 +30,7 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest(path+'/css'))
         .pipe(browserSync.stream());
    // cb(err);
 });
@@ -38,17 +38,17 @@ gulp.task('sass', function () {
 
 //将css加上10位md5，并修改html中的引用路径
 gulp.task('md5:css',['sass'], function (done) {
-    gulp.src('dist/css/*.css')
+    gulp.src(path+'/css/*.css')
         .pipe(md5(10, 'dist/*.html'))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest(path+'/css'))
         .on('end', done);
 });
 
 //将js加上10位md5,并修改html中的引用路径，该动作依赖build-js
 gulp.task('md5:js', ['rjs'], function (done) {
-    gulp.src('dist/js/**/*')
-        .pipe(md5(10, 'dist/*.html'))
-        .pipe(gulp.dest('dist/js'))
+    gulp.src(path+'/js/**/*')
+        .pipe(md5(10, path+'/*.html'))
+        .pipe(gulp.dest(path+'/js'))
         .on('end', done);
 });
 
@@ -57,14 +57,14 @@ gulp.task('sprite', function () {
         imgName: 'sprite.png',
         cssName: 'sprite.css'
     }));
-    return spriteData.pipe(gulp.dest('dist/css')); //将图和spritecss输出到css文件夹
+    return spriteData.pipe(gulp.dest(path+'/css')); //将图和spritecss输出到css文件夹
 });
 
 
 
 gulp.task('js',['cleanjs'],function(){
     return gulp.src('src/js/**/*.js')
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(path+'/js'));
     //cb(err);
 });
 
@@ -80,7 +80,7 @@ gulp.task('rjs',['js'],function(){
             ]
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/js/app'));
+        .pipe(gulp.dest(path+'/js/app'));
 });
 
 
@@ -91,7 +91,7 @@ gulp.task('fileinclude', function () {
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest(path));
 });
 
 
@@ -112,7 +112,7 @@ gulp.task('serve',function() {
 
 //打包前清除JS
 gulp.task('cleanjs',function (cb) {
-    return gulp.src('dist/js/**/*.js',{read: false})
+    return gulp.src(path+'/js/**/*.js',{read: false})
             .pipe(clean());
             cb(err);
 
@@ -120,14 +120,14 @@ gulp.task('cleanjs',function (cb) {
 
 //清除css
 gulp.task('cleancss',function () {
-    return gulp.src('dist/css/',{read: false})
+    return gulp.src(path+'/css/',{read: false})
         .pipe(clean());
 });
 
 
 //全部清空
 gulp.task('clean',function () {
-    return gulp.src('dist/',{read: false})
+    return gulp.src(path,{read: false})
         .pipe(clean());
 });
 
