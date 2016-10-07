@@ -1,0 +1,57 @@
+@@include('../public/header.html')
+<title>个人注册</title>
+</head>
+<body>
+<div class="login-mods">
+    <div class="w-reg-box">
+        <div class="m-orange-logo"></div>
+        <form class="form-horizontal m-login-form" action="#" method="post">
+            <div class="form-group">
+                <label for="reg-phone" class="col-sm-2 control-label">手机号:</label>
+                <div class="col-sm-10">
+                    <input type="tel" class="form-control input-lg" id="reg-phone" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="reg-psw" class="col-sm-2 control-label">密码:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control input-lg" id="reg-psw" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="reg-psw-confirm" class="col-sm-2 control-label">确认密码:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control input-lg" id="reg-psw-confirm" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="reg-code" class="col-sm-2 control-label">验证码:</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control input-lg" id="reg-code" placeholder="">
+                </div>
+                <div class="col-sm-4">
+                    <img src="code.gif" style="width:140px; height:46px;" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <p class="reg-tips">注：手机号码是您的用户名并且也是房客联系您的方式，请谨慎填写。</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn full-control btn-danger input-lg" value="注册" />
+                </div>
+            </div>
+        </form>
+        <div class="clearfix login-url-tips">
+            <p class="pull-right">已是会员？<a href="login.html">点击登录</a></p>
+        </div>
+    </div>
+</div>
+@@include('../public/only-config.html')
+<script src="@@include('../public/path.html')js/libs/require.js" data-main="@@include('../public/path.html')js/apps/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "requirejs-gulp",
+  "version": "1.0.0",
+  "description": "requirejs-gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "requirejs"
+  ],
+  "author": "hasbug",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-file-include": "^0.14.0",
+    "gulp-md5-plus": "^0.2.5",
+    "gulp-plumber": "^1.1.0",
+    "gulp-requirejs-optimize": "^1.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-url-replace": "^1.0.2",
+    "gulp.spritesmith": "^6.2.1"
+  }
+}

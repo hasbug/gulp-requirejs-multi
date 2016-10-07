@@ -1,0 +1,42 @@
+@@include('../public/header.html')
+<title>登录</title>
+</head>
+<body>
+<div class="login-mods">
+    <div class="w-login-box">
+        <div class="m-orange-logo"></div>
+       <form class="form-horizontal m-login-form" action="#" method="post">
+           <div class="form-group">
+               <div class="input-group">
+                   <div class="input-group-addon">手机号</div>
+                   <input class="form-control input-lg" type="tel" placeholder="">
+               </div>
+           </div>
+           <div class="form-group">
+               <div class="input-group">
+                   <div class="input-group-addon">密码</div>
+                   <input class="form-control input-lg" type="password" placeholder="">
+               </div>
+           </div>
+           <div class="form-group">
+               <div class="">
+                   <div class="checkbox">
+                       <label>
+                           <input type="checkbox"> 自动登录
+                       </label>
+                       <a hre="#">忘记密码</a>
+                       <span class="pull-right">新用户？<a href="reg-fd.html">点击注册</a></span>
+                   </div>
+               </div>
+           </div>
+           <div class="form-group">
+               <input type="submit" class="btn full-control btn-danger input-lg" value="登录" />
+           </div>
+
+       </form>
+    </div>
+</div>
+@@include('../public/only-config.html')
+<script src="@@include('../public/path.html')js/libs/require.js" data-main="@@include('../public/path.html')js/apps/login.js"></script>
+</body>
+</html>
