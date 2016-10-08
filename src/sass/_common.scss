@@ -106,3 +106,23 @@ h5{
 .not-padding{
   padding:0 !important;
 }
+
+//以下是大咖讲
+.bar-bg{
+  color:#fff;
+  background: $base-orange;
+}
+
+.flex{
+  @include flex;
+}
+.flex-item{
+  @include flex-item();
+}
+
+.ml10{
+  margin-left:1rem;
+}
+.mr10{
+  margin-right:1rem;
+}

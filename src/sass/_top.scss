@@ -1,3 +1,14 @@
 .header{
+  position: absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:$top-h;
+}
 
+.logo{
+  width:100px;
+  height:40px;
+  background:url(../images/logo.png);
+  background-size:100% 100%;
 }

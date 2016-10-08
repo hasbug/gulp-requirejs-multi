@@ -1,20 +1,26 @@
-define(['jquery','icheck'],function ($,iCheck) {
-    var init;
-
-    console.log(iCheck)
-
-    init = function () {
-        //设置icheck
-        $(document).ready(function(){
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_minimal-orange',
-                radioClass: 'iradio_minimal-orange',
-                increaseArea: '20%' // optional
-            });
+define(['jquery','Iscroll'],function ($,Iscroll) {
+    var myScroll;//基础变量
+    var scroll,init; //方法名
+    scroll = function(ele) {
+        var ele=ele || '#app';
+        myScroll = new Iscroll(ele, {
+            click: true
         });
-    }
 
-    return {
-        init:init
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, false);
+        return myScroll;
+    };
+
+
+
+    init= function () {
+        scroll();
+    };
+
+    return{
+        init:init,
+        scroll:scroll
     }
 });

@@ -14,7 +14,7 @@ var gulp=require('gulp'),
 
 
 var basePath='';
-var output='F:/project/wtbtest';
+var output='F:/project/top';
 
 //替换html中的静态文件路径
 gulp.task('reurl', function(){
